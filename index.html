@@ -585,6 +585,297 @@
             font-weight: 700;
         }
 
+        /* About Section Styles */
+        .about-section {
+            padding: 40px 0;
+            background: var(--bg-white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 28px 24px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .mission-card {
+            border-left-color: var(--primary-navy);
+        }
+
+        .vision-card {
+            border-left-color: var(--accent-gold);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .info-card h3 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 480px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-item {
+            background: var(--bg-white);
+            padding: 24px 20px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .value-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .value-item h4 {
+            color: var(--primary-navy);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .value-item p {
+            color: var(--text-gray);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            margin-bottom: 40px;
+        }
+
+        .goal-card {
+            background: var(--bg-white);
+            padding: 28px 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+        }
+
+        .main-goal {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .main-goal p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .goal-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .goal-icon {
+            font-size: 1.8rem;
+        }
+
+        .goal-header h3 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .main-goal .goal-header h3 {
+            color: white;
+        }
+
+        .objectives-card {
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .objectives-list {
+            counter-reset: objective-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .objectives-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .objectives-list li::before {
+            counter-increment: objective-counter;
+            content: counter(objective-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* Principles Section */
+        .principles-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .principles-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .principle-card,
+        .policy-card {
+            background: var(--bg-white);
+            padding: 28px 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .principle-card:hover,
+        .policy-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+
+        .principle-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .principle-icon {
+            font-size: 1.8rem;
+        }
+
+        .principle-header h3 {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .principle-content {
+            color: var(--text-gray);
+        }
+
+        .principle-main {
+            font-size: 1.15rem;
+            color: var(--primary-navy);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .principle-steps {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+        }
+
+        .policy-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
         /* Footer */
         .site-footer {
             background: var(--primary-dark);
@@ -657,7 +948,115 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Магистрын Хөтөлбөрүүд</h2>
+            <h2>Мэргэжлийн Сургалтын Төв</h2>
+            <p style="margin-top: 12px; font-size: 1.1rem; color: var(--accent-gold-light);">"Хүссэн мэргэжлээ эзэмшээд хүрэх ирээдүйгээ бүтээ."</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="main-content">
+            <!-- Mission & Vision -->
+            <div class="info-grid">
+                <div class="info-card mission-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>Эрхэм Зорилго</h3>
+                    <p>Практикт суурилсан чанартай сургалтаар мэргэжлийн өндөр ур чадварыг эзэмшүүлж, өрсөлдөх чадамжтай, хөгжих эрмэлзэлтэй <strong>"ЧАДВАРЛАГ АЖИЛТАН"</strong>-ыг бид бэлтгэнэ.</p>
+                </div>
+                <div class="info-card vision-card">
+                    <div class="info-icon">👁️</div>
+                    <h3>Алсын Хараа</h3>
+                    <p>Монголын мэргэжлийн боловсролын салбарт чанар, ур чадвар, шинэчлэлээр тэргүүлж, олон улсад хүлээн зөвшөөрөгдөх сургалтын зорилго, зорилтот орчныг бүрдүүлж, ажил олгогч болон төгсөгч нартай эргэх холбоотой ажиллагч <strong>"МЭРГЭЖЛИЙН СУРГАЛТЫН ЖИШИГ ТӨВ"</strong> болох.</p>
+                </div>
+            </div>
+
+            <!-- Values -->
+            <div class="values-section">
+                <h3 class="section-title">Үнэт Зүйл</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">⭐</div>
+                        <h4>Чанар</h4>
+                        <p>Сургалтын чанарыг нэн тэргүүнд эрхэмлэгч</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🏆</div>
+                        <h4>Мэргэжлийн ур чадвар</h4>
+                        <p>Бодит мэдлэг, дадлага, ур чадварыг эзэмшүүлэгч</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">📋</div>
+                        <h4>Хариуцлага</h4>
+                        <p>Төгсөгч бүр ажлын хариуцлагатай, мэргэшсэн ажилтан болох</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">📈</div>
+                        <h4>Хөгжил</h4>
+                        <p>Шинэ мэдлэг, техник, технологи, арга барилаар хамтдаа хөгжигч</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🤝</div>
+                        <h4>Хүндлэл</h4>
+                        <p>Суралцагч, багш, ажилтан бүр харилцан хүндлэлцэх, зөв соёлыг түгээгч</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">✅</div>
+                        <h4>Үр дүн</h4>
+                        <p>Төгсөгч бүрийн амжилттай хөдөлмөр эрхлэлт, сэтгэл ханамж, ахиж дэвших боломж</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal & Objectives -->
+            <div class="goals-section">
+                <div class="goal-card main-goal">
+                    <div class="goal-header">
+                        <span class="goal-icon">🎯</span>
+                        <h3>Зорилго</h3>
+                    </div>
+                    <p>Мэргэжил эзэмшихийг хүсэгч хэн бүхэнд практикт суурилсан чанартай сургалтаар чадамж эзэмшүүлж, ажил олгогчдын хүлээлтэд нийцсэн чадварлаг ажилтныг бэлтгэн гаргах.</p>
+                </div>
+
+                <div class="objectives-card">
+                    <div class="goal-header">
+                        <span class="goal-icon">📌</span>
+                        <h3>Зорилт</h3>
+                    </div>
+                    <ol class="objectives-list">
+                        <li>Сургалтын чанарыг тасралтгүй сайжруулах</li>
+                        <li>Онол, практикийг хослуулсан сургалтыг хөгжүүлэх</li>
+                        <li>Цаг үе, өөрчлөлтийг мэдэрч онол, практикийн шинэчлэлийг сургалтын агуулгад нэвтрүүлэх</li>
+                        <li>Мэргэжлийн ур чадвартай багш, хамт олныг бий болгох, тогтвортой ажиллуулах</li>
+                        <li>Байгууллагаараа хамтдаа хөгжих, багаар ажиллах, бүтээмжээ нэмэгдүүлэх</li>
+                        <li>Сургах арга зүйг сайжруулах, суралцагч бүрийн онцлогийг мэдэрч ажиллах</li>
+                        <li>Хөдөлмөрийн зах зээлийн эрэлтэд нийцсэн мэргэжлээр чадварлаг ажилтан бэлтгэх</li>
+                        <li>Төгсөгчдийг хувиараа хөдөлмөр эрхлэх, ажил олоход нь зөвлөгөө, чиглүүлэг өгөх</li>
+                        <li>Олон улсын стандарт, шаардлагад нийцсэн онол, ур чадварыг сургалтын хөтөлбөрт нэвтрүүлэх</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Training Principles & Policy -->
+            <div class="principles-section">
+                <div class="principle-card">
+                    <div class="principle-header">
+                        <span class="principle-icon">📘</span>
+                        <h3>Сургалтын Зарчим</h3>
+                    </div>
+                    <div class="principle-content">
+                        <p class="principle-main"><strong>"Шавь төвт сургалт"</strong></p>
+                        <p class="principle-steps">"Онол → Дадлага → Бие даалт → Мэргэжлийн ур чадвар → Аюулгүй ажиллагаа" гэсэн дарааллаар бодит чадвар эзэмшүүлэх.</p>
+                    </div>
+                </div>
+
+                <div class="policy-card">
+                    <div class="principle-header">
+                        <span class="principle-icon">📜</span>
+                        <h3>Бодлого</h3>
+                    </div>
+                    <p>Суралцагчийн хүсэлт, хэрэгцээг хүндэтгэн үзэж, хөдөлмөрийн зах зээлийн эрэлтэд нийцсэн чанартай сургалтыг мэргэжлийн өндөр түвшинд явуулж, багш бүр мэргэжлийн болон заах арга, ур чадварыг тогтмол хөгжүүлж, төгсөгчдийг эзэмшсэн мэргэжлээрээ ажиллах, бизнес эрхлэх бодит чадвартай болгох</p>
+                </div>
+            </div>
         </div>
     </section>
 
