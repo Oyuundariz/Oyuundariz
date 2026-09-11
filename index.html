@@ -129,22 +129,25 @@
             <div class="card mission-card scroll-reveal">
                 <div class="icon-box"><i class="fas fa-bullseye"></i></div>
                 <h3>ЭРХЭМ ЗОРИЛГО</h3>
-                <p>“Практикт суурилсан чанартай сургалтаар мэргэжлийн өндөр ур чадварыг эзэмшүүлж, өрсөлдөх чадамжтай, хөгжих эрмэлзэлтэй “ЧАДВАРЛАГ АЖИЛТАН”-ыг бид бэлтгэнэ.”</p>
+                <p>Практикт суурилсан чанартай сургалтаар мэргэжлийн өндөр ур чадварыг эзэмшүүлж, өрсөлдөх чадамжтай, хөгжих эрмэлзэлтэй "ЧАДВАРЛАГ АЖИЛТАН"-ыг бид бэлтгэнэ.</p>
+                <button class="btn-details" data-modal="mission-modal">Дэлгэрэнгүй <i class="fas fa-plus"></i></button>
             </div>
             <div class="card vision-card scroll-reveal">
                 <div class="icon-box"><i class="fas fa-eye"></i></div>
                 <h3>АЛСЫН ХАРАА</h3>
-                <p>“Монголын мэргэжлийн боловсролын салбарт чанар, ур чадвар, шинэчлэлээр тэргүүлж, олон улсад хүлээн зөвшөөрөгдөх сургалтын зорилго, зорилтот орчныг бүрдүүлж, ажил олгогч болон төгсөгч нартай эргэх холбоотой ажиллагч “МЭРГЭЖЛИЙН СУРГАЛТЫН ЖИШИГ ТӨВ” болох.”</p>
+                <p>Монголын мэргэжлийн боловсролын салбарт чанар, ур чадвар, шинэчлэлээр тэргүүлж, олон улсад хүлээн зөвшөөрөгдөх сургалтын зорилго, зорилтот орчныг бүрдүүлж, ажил олгогч болон төгсөгч нартай эргэх холбоотой ажиллагч "МЭРГЭЖЛИЙН СУРГАЛТЫН ЖИШИГ ТӨВ" болох.</p>
+                <button class="btn-details" data-modal="vision-modal">Дэлгэрэнгүй <i class="fas fa-plus"></i></button>
             </div>
         </div>
     </section>
 
     <!-- Values -->
-    <section class="section values-section">
+<section class="section values-section">
         <div class="container">
             <div class="section-header text-center">
                 <h3 class="section-title">ҮНЭТ ЗҮЙЛС</h3>
             </div>
+            <button class="btn-details btn-values" data-modal="values-modal" style="display:block; margin:0 auto 30px;">Дэлгэрэнгүй <i class="fas fa-plus"></i></button>
             <div class="grid-3 values-grid">
                 <div class="value-card scroll-reveal">
                     <i class="fas fa-gem"></i>
@@ -240,6 +243,7 @@
             </div>
 
             <div class="policy-box scroll-reveal">
+                <button class="btn-details" data-modal="policy-modal">Дэлгэрэнгүй <i class="fas fa-plus"></i></button>
                 <h4>БОДЛОГО</h4>
                 <p>“Суралцагчийн хүсэлт, хэрэгцээг хүндэтгэн үзэж, хөдөлмөрийн зах зээлийн эрэлтэд нийцсэн чанартай сургалтыг мэргэжлийн өндөр түвшинд явуулж, багш бүр мэргэжлийн болон заах арга, ур чадварыг тогтмол хөгжүүлж, төгсөгчдийг эзэмшсэн мэргэжлээрээ ажиллах, бизнес эрхлэх бодит чадвартай болгох.”</p>
             </div>
@@ -422,6 +426,83 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Popups -->
+    <div id="vision-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>АЛСЫН ХАРАА</h3>
+            <p>Монголын мэргэжлийн боловсролын салбарт чанар, ур чадвар, шинэчлэлээр тэргүүлж, олон улсад хүлээн зөвшөөрөгдөх сургалтын зорилго, зорилтот орчныг бүрдүүлж, ажил олгогч болон төгсөгч нартай эргэх холбоотой ажиллагч "МЭРГЭЖЛИЙН СУРГАЛТЫН ЖИШИГ ТӨВ" болох.</p>
+        </div>
+    </div>
+
+    <div id="mission-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>ЭРХЭМ ЗОРИЛГО</h3>
+            <p>Практикт суурилсан чанартай сургалтаар мэргэжлийн өндөр ур чадварыг эзэмшүүлж, өрсөлдөх чадамжтай, хөгжих эрмэлзэлтэй "ЧАДВАРЛАГ АЖИЛТАН"-ыг бид бэлтгэнэ.</p>
+        </div>
+    </div>
+
+    <div id="policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>БОДЛОГО</h3>
+            <p>Суралцагчийн хүсэлт, хэрэгцээг хүндэтгэн үзэж, хөдөлмөрийн зах зээлийн эрэлтэд нийцсэн чанартай сургалтыг мэргэжлийн өндөр түвшинд явуулж, багш бүр мэргэжлийн болон заах арга, ур чадварыг тогтмол хөгжүүлж, төгсөгчдийг эзэмшсэн мэргэжлээрээ ажиллах, бизнес эрхлэх бодит чадвартай болгох.</p>
+        </div>
+    </div>
+
+    <div id="values-modal" class="modal">
+        <div class="modal-content modal-values">
+            <span class="modal-close">&times;</span>
+            <h3>ҮНЭТ ЗҮЙЛС</h3>
+            <div class="values-list">
+                <div class="value-item">
+                    <i class="fas fa-gem"></i>
+                    <div>
+                        <h4>Чанар</h4>
+                        <p>Сургалтын чанарыг нэн тэргүүнд эрхэмлэгч</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-tools"></i>
+                    <div>
+                        <h4>Мэргэжлийн ур чадвар</h4>
+                        <p>Бодит мэдлэг, дадлага, ур чадварыг эзэмшүүлэгч</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h4>Хариуцлага</h4>
+                        <p>Төгсөгч бүр ажлын хариуцлагатай, мэргэшсэн ажилтан болох</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Хөгжил</h4>
+                        <p>Шинэ мэдлэг, техник, технологи, арга барилаар хамтдаа хөгжигч</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4>Хүндлэл</h4>
+                        <p>Суралцагч, багш, ажилтан бүр харилцан хүндлэлцэх, зөв соёлыг түгээгч</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h4>Үр дүн</h4>
+                        <p>Төгсөгч бүрийн амжилттай хөдөлмөр эрхлэлт, сэтгэл ханамж, ахиж дэвших боломж</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>
