@@ -1,11 +1,11 @@
 // ============================================
-// UPDATE Vocational Training Center - JavaScript
+// UPDATE МЭРГЭЖИЛ СУРГАЛТЫН ТӨВ - SCRIPT.JS
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // ============================================
-    // Mobile Navigation Toggle
+    // MOBILE NAVIGATION
     // ============================================
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
@@ -17,38 +17,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close mobile menu when clicking on a link
-        const navLinks = nav.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
         });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        });
     }
     
     // ============================================
-    // Sticky Header with Scroll Effect
+    // STICKY HEADER
     // ============================================
     const header = document.getElementById('header');
     
-    function handleHeaderScroll() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     }
     
-    window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll(); // Initial check
-    
     // ============================================
-    // Active Navigation Link on Scroll
+    // ACTIVE NAVIGATION LINK
     // ============================================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
-    function highlightNavLink() {
+    function updateActiveNav() {
         const scrollPosition = window.scrollY + 100;
         
         sections.forEach(function(section) {
@@ -67,33 +74,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    window.addEventListener('scroll', highlightNavLink);
+    window.addEventListener('scroll', updateActiveNav);
     
     // ============================================
-    // Modal System
+    // MODAL SYSTEM
     // ============================================
-    const modalButtons = document.querySelectorAll('[data-modal]');
+    const modalTriggers = document.querySelectorAll('.modal-trigger');
     const modals = document.querySelectorAll('.modal');
-    const modalCloseButtons = document.querySelectorAll('.modal-close');
+    const modalCloses = document.querySelectorAll('.modal-close');
     
     // Open modal
-    modalButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+    modalTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
             const modalId = this.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
+            
             if (modal) {
-                openModal(modal);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
         });
     });
     
     // Close modal with X button
-    modalCloseButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+    modalCloses.forEach(function(closeBtn) {
+        closeBtn.addEventListener('click', function() {
             const modal = this.closest('.modal');
-            if (modal) {
-                closeModal(modal);
-            }
+            closeModal(modal);
         });
     });
     
@@ -116,84 +124,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    function openModal(modal) {
-        modal.style.display = 'flex';
-        // Small delay to allow display:flex to apply before adding opacity
-        setTimeout(function() {
-            modal.classList.add('active');
-        }, 10);
-        document.body.style.overflow = 'hidden';
-    }
-    
     function closeModal(modal) {
-        modal.classList.remove('active');
-        setTimeout(function() {
-            modal.style.display = 'none';
-        }, 300); // Match transition duration
-        document.body.style.overflow = '';
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }
     
     // ============================================
-    // Training Category Toggle (Accordion)
+    // BRANCH TABS
     // ============================================
-    const toggleButtons = document.querySelectorAll('.btn-toggle');
+    const branchTabs = document.querySelectorAll('.branch-tab');
+    const branchInfos = document.querySelectorAll('.branch-info');
     
-    toggleButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const content = document.getElementById(targetId);
-            
-            if (content) {
-                // Toggle current content
-                content.classList.toggle('active');
-                
-                // Update button text
-                if (content.classList.contains('active')) {
-                    this.textContent = 'Багах';
-                } else {
-                    this.textContent = 'Дэлгэрэнгүй';
-                }
-            }
-        });
-    });
-    
-    // ============================================
-    // Branch Selector
-    // ============================================
-    const branchButtons = document.querySelectorAll('.branch-btn');
-    const branchContents = document.querySelectorAll('.branch-content');
-    
-    branchButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+    branchTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
             const branchId = this.getAttribute('data-branch');
             
-            // Remove active class from all buttons
-            branchButtons.forEach(function(btn) {
-                btn.classList.remove('active');
+            // Remove active class from all tabs and infos
+            branchTabs.forEach(function(t) {
+                t.classList.remove('active');
+            });
+            branchInfos.forEach(function(info) {
+                info.classList.remove('active');
             });
             
-            // Add active class to clicked button
+            // Add active class to clicked tab and corresponding info
             this.classList.add('active');
-            
-            // Hide all branch contents
-            branchContents.forEach(function(content) {
-                content.classList.remove('active');
-                content.classList.add('hidden');
-            });
-            
-            // Show selected branch content
-            const selectedBranch = document.getElementById(branchId);
-            if (selectedBranch) {
-                selectedBranch.classList.remove('hidden');
-                selectedBranch.classList.add('active');
+            const targetInfo = document.getElementById(branchId);
+            if (targetInfo) {
+                targetInfo.classList.add('active');
             }
         });
     });
     
     // ============================================
-    // Scroll Animations (Fade In on Scroll)
+    // SCROLL ANIMATIONS (FADE IN)
     // ============================================
-    const fadeElements = document.querySelectorAll('.card, .goal-card, .training-category, .dormitory-card');
+    const fadeElements = document.querySelectorAll('.fade-in');
     
     function checkFadeElements() {
         const triggerBottom = window.innerHeight * 0.85;
@@ -202,37 +170,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const elementTop = element.getBoundingClientRect().top;
             
             if (elementTop < triggerBottom) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+                element.classList.add('visible');
             }
         });
     }
     
-    // Initialize fade elements with transition
-    fadeElements.forEach(function(element) {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
     window.addEventListener('scroll', checkFadeElements);
-    checkFadeElements(); // Initial check
+    checkFadeElements(); // Check on initial load
     
     // ============================================
-    // Smooth Scroll for Anchor Links
+    // SMOOTH SCROLL FOR ANCHOR LINKS
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
+            
             if (href !== '#') {
                 e.preventDefault();
                 const target = document.querySelector(href);
+                
                 if (target) {
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const targetPosition = target.offsetTop - headerHeight;
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                     
                     window.scrollTo({
-                        top: targetPosition,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
@@ -241,96 +204,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ============================================
-    // Goal Section Animation
+    // CARD HOVER EFFECTS ENHANCEMENT
     // ============================================
-    const goalSection = document.querySelector('.goal-section');
-    if (goalSection) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+    const cards = document.querySelectorAll('.about-card, .principle-card, .dormitory-card, .goal-card, .training-item');
+    
+    cards.forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s ease';
+        });
+    });
+    
+    // ============================================
+    // PERFORMANCE OPTIMIZATION
+    // ============================================
+    let isScrolling = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(function() {
+                updateActiveNav();
+                checkFadeElements();
+                isScrolling = false;
             });
-        }, { threshold: 0.1 });
-        
-        goalSection.style.opacity = '0';
-        goalSection.style.transform = 'translateY(20px)';
-        goalSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(goalSection);
-    }
-    
-    // ============================================
-    // Section Title Animation
-    // ============================================
-    const sectionTitles = document.querySelectorAll('.section-title');
-    sectionTitles.forEach(function(title) {
-        title.style.opacity = '0';
-        title.style.transform = 'translateY(20px)';
-        title.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    const titleObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    sectionTitles.forEach(function(title) {
-        titleObserver.observe(title);
-    });
-    
-    // ============================================
-    // Button Ripple Effect (Optional Enhancement)
-    // ============================================
-    const buttons = document.querySelectorAll('.btn, .btn-toggle, .branch-btn');
-    
-    buttons.forEach(function(button) {
-        button.addEventListener('mouseenter', function(e) {
-            const rect = button.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const ripple = document.createElement('span');
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.left = (x - 10) + 'px';
-            ripple.style.top = (y - 10) + 'px';
-            ripple.style.width = '20px';
-            ripple.style.height = '20px';
-            
-            button.style.position = 'relative';
-            button.style.overflow = 'hidden';
-            button.appendChild(ripple);
-            
-            setTimeout(function() {
-                ripple.remove();
-            }, 600);
-        });
-    });
-    
-    // Add ripple animation to CSS dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+            isScrolling = true;
         }
-    `;
-    document.head.appendChild(style);
+    }, false);
     
     // ============================================
-    // Console Welcome Message
+    // INITIALIZE
     // ============================================
-    console.log('%c UPDATE Мэргэжил Сургалтын Төв ', 'background: #f97316; color: #fff; font-size: 20px; padding: 10px; border-radius: 5px;');
-    console.log('%c Website successfully loaded! ', 'background: #2563eb; color: #fff; font-size: 14px; padding: 5px; border-radius: 3px;');
+    console.log('UPDATE МЭРГЭЖИЛ СУРГАЛТЫН ТӨВ - Website loaded successfully');
+    
 });
